@@ -1,4 +1,4 @@
-package MatiasPersistencia;
+package com.example.demo.Entity;
 
 import java.io.Serializable;
 
@@ -14,6 +14,7 @@ import javax.persistence.MappedSuperclass;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Base implements Serializable{
     
+	private static final long serialVersionUID = 1L;
 	//ATRIBUTOS
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,8 @@ public abstract class Base implements Serializable{
     public int getId() {
         return id;
     }
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
+    
 }

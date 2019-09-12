@@ -1,42 +1,58 @@
 package com.example.demo.Entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
-@Entity
-@Table(name="api_planet")
-public class Planet {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="planet_id")
-	private int id;
+@Entity(name = "api_Planet")
+public class Planet extends Base{
+
+	private static final long serialVersionUID = 1L;
 	
-	@Column(name="planet_name")
+	//ATRIBUTOS
+	@Column(name = "planet_name")
 	private String name;
 	
-	public Planet() {
-		
+	@Column(name = "planet_size")
+	private double size;
+	
+	//RELACIONES
+	@OneToMany(mappedBy = "planets")
+	private Star star;
+	
+	//CONSTRUCTOR
+	public Planet() {}
+
+	public Planet(String name, double size) {
+		this.name = name;
+		this.size = size;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
+	//GETTERS AND SETTERS
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
+	}
+
+	public Star getStar() {
+		return star;
+	}
+	public void setStar(Star star) {
+		this.star = star;
+	}
+	
+	
 	
 }
