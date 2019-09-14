@@ -2,13 +2,13 @@ package com.example.demo.Entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-
+@Entity(name = "api_Star")
+@DiscriminatorValue("star")
 public class Star extends Base{
 
 	private static final long serialVersionUID = 1L;
@@ -22,8 +22,7 @@ public class Star extends Base{
 	
 	
 	//RELACIONES
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "Planet.id")
+	@OneToMany(mappedBy = "star")
     private List<Planet> planets;
 	
 	

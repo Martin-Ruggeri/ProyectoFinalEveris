@@ -13,8 +13,9 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Base implements Serializable{
-    
+
 	private static final long serialVersionUID = 1L;
+	
 	//ATRIBUTOS
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

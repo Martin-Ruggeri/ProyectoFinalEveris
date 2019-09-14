@@ -13,45 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.DTO.PlanetDTO;
-import com.example.demo.Service.PlanetService;
+import com.example.demo.DTO.DTO_Planet;
+import com.example.demo.Service.Service_Planet;
 
 @Controller
 @RestController
-@RequestMapping(path = "api/v1/planets")
-public class PlanetController {
+@RequestMapping(path = "api/v1/planet")
+public class Controller_Planet {
 
-	private PlanetService planetService;
+	private Service_Planet service_Planet;
 	
-	public PlanetController(PlanetService planetService) {
-		this.planetService = planetService;
+	public Controller_Planet(Service_Planet service_Planet) {
+		this.service_Planet = service_Planet;
 	}
 
 	//localhost:9000/api/v1/planets/{id}
 	@GetMapping(path="/{id}")
-	public PlanetDTO getOne(@PathVariable int id) {
-
-		
-		
-		return
-ResponseEntity.status(200).body(planetService.getOne(id)).getBody();
+	public DTO_Planet getOne(@PathVariable int id) {
+		return ResponseEntity.status(200).body(service_Planet.getOne(id)).getBody();
 	}
 	
 	//localhost:9000/api/v1/planets/
 	@GetMapping(path="/")
-	public List<PlanetDTO> getAll() {
+	public List<DTO_Planet> getAll() {
 	//	return planetService.getAll();
-		return ResponseEntity.status(200).body(planetService.getAll()).getBody();
+		return ResponseEntity.status(200).body(service_Planet.getAll()).getBody();
 	}
 	
 	@PostMapping(path="/")
-	public ResponseEntity post(@RequestBody PlanetDTO planetDTO) {
+	public ResponseEntity<DTO_Planet> post(@RequestBody DTO_Planet dTO_Planet) {
 		
-		PlanetDTO result = new PlanetDTO();
+		DTO_Planet result = new DTO_Planet();
 		
 		try {
 			
-			result = planetService.post(planetDTO);
+			result = service_Planet.post(dTO_Planet);
 			
 		} catch (Exception e) {
 
@@ -62,28 +58,28 @@ ResponseEntity.status(200).body(planetService.getOne(id)).getBody();
 	}
 	
 	@PutMapping(path = "/{id}")
-	public ResponseEntity put(@RequestBody PlanetDTO planetDTO, @PathVariable int id) {
+	public ResponseEntity<DTO_Planet> put(@RequestBody DTO_Planet dTO_Planet, @PathVariable int id) {
 		
-		PlanetDTO result = new PlanetDTO();
+		DTO_Planet result = new DTO_Planet();
 		
 		try {
-			
-			result = planetService.put(planetDTO, id);
+
+			result = service_Planet.put(dTO_Planet, id);
 			
 		} catch (Exception e) {
 
 		}
 		
-		planetDTO.setId(result.getId());
+		dTO_Planet.setId(result.getId());
 		
-		return ResponseEntity.status(201).body(planetDTO);
+		return ResponseEntity.status(201).body(dTO_Planet);
 		
 	}
 	
 	@DeleteMapping(path = "/{id}")
-	public ResponseEntity delete(@PathVariable int id) {
+	public ResponseEntity<String> delete(@PathVariable int id) {
 		
-		boolean result = planetService.delete(id);
+		boolean result = service_Planet.delete(id);
 		
 		if(result) {
 			return ResponseEntity.status(204).body("");

@@ -3,9 +3,9 @@ package com.example.demo.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.Entity.Planet;
+import com.example.demo.Entity.Star;
 
 @Repository
-public interface PlanetRepository extends JpaRepository<Planet, Integer>{
+public interface Repository_Star extends JpaRepository<Star, Integer> {
 	
 }
