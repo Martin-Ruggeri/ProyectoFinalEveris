@@ -1,0 +1,37 @@
+<nav class="navbar navbar-light bg-secondary" routerLinkActive="active">
+  <!-- Logo -->
+  <ul class="nav">
+      <li class="nav-item">
+          <a class="nav-link active" _ngcontent-c1="" aria-label="Angular Material" style="color:white;" mat-button="" routerlink="/" tabindex="0" aria-disabled="true" [routerLink]="['home']" (click)="setDir_titulo('home')">
+            <span class="mat-button-focus-overlay">
+              <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="https://icon-icons.com/icons2/510/PNG/48/planet_icon-icons.com_50069.png">
+            </span>
+          </a>  
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['home']" (click)="setDir_titulo('home')"> 
+          <h5 style="margin-top: 10px;">
+            <span class="badge badge-secondary">Home</span>
+          </h5> 
+        </a>
+      </li>
+    </ul>
+  <!-- Titulo -->
+  <div class="spacer">
+    <h2 style="text-align: center; color:dark;" *ngIf="dir_titulo == 'home'">Welcome to the Planets</h2>
+    <h2 style="text-align: center; color:dark;" *ngIf="dir_titulo == 'add-star'">Star</h2>
+    <h2 style="text-align: center; color:dark;" *ngIf="dir_titulo == 'add-planet'">Planet</h2>
+  </div>
+  <!-- Dropdown (Para elegir casilla) -->
+  <div class="dropdown" style="margin-right: 3%;">
+    <button class="btn btn-outline-dark " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false" style="width: 57px;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" style="width:100%; text-align: center;"
+      aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" [routerLink]="['add-planet']" (click)="setDir_titulo('add-planet')">Planets</a>
+      <a class="dropdown-item" [routerLink]="['add-star']" (click)="setDir_titulo('add-star')">Stars</a>
+    </div>
+  </div>
+</nav>

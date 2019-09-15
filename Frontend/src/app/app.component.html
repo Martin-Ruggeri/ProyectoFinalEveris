@@ -1,24 +1,5 @@
-<nav class="navbar navbar-light bg-secondary">
-  <!-- Logo -->
-  <a _ngcontent-c1="" aria-label="Angular Material" style="color:white;" class="nav-link" mat-button="" routerlink="/" tabindex="0" aria-disabled="true" href="/">
-    <span class="mat-button-focus-overlay">
-      <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="https://icon-icons.com/icons2/510/PNG/48/planet_icon-icons.com_50069.png">
-    </span>    
-  </a>
-  <!-- Titulo -->
-  <div class="spacer"> 
-    <h2 style="text-align: center; color:dark;">Welcome to the Planets</h2>
-  </div>
-  <!-- Dropdown (Para elegir casilla) -->
-  <div class="dropdown" style="margin-right: 3%;">
-    <button class="btn btn-outline-dark " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 57px;">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="dropdown-menu dropdown-menu-right" style="width:100%; text-align: center;" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Planets</a>
-      <a class="dropdown-item" href="#">Stars</a>
-    </div>
-  </div>
-</nav>
+<app-navbar></app-navbar>
 
-<router-outlet></router-outlet>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
