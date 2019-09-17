@@ -56,7 +56,6 @@ public class Service_Star {
 		
 		try {
 			Star star = new Star();
-			star.setId(dTO_Star.getId());
 			star.setDensity(dTO_Star.getDensity());
 			star.setName(dTO_Star.getName());
 			repository_Star.save(star);
@@ -72,7 +71,6 @@ public class Service_Star {
 		
 		try {
 			Star star = bd.get();
-			star.setId(dTO_Star.getId());
 			star.setDensity(dTO_Star.getDensity());
 			star.setName(dTO_Star.getName());
 			repository_Star.save(star);

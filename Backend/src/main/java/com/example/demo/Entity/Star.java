@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -27,11 +28,14 @@ public class Star extends Base{
 	
 	
 	//CONSTRUCTOR
-	public Star() {}
+	public Star() {
+		this.planets = new ArrayList<>();
+	}
 	
-	public Star(String name, double density) {
+	public Star(String name, double density, List<Planet> planets) {
 		this.name = name;
 		this.density = density;
+		this.planets = planets;
 	}
 
 	

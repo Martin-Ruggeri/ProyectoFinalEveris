@@ -3,10 +3,11 @@
         <div>
             <ul class="nav">
                 <li class="nav-item">
-                    <h2>List of Stars</h2>
+                    <h2>List of Planet</h2>
                 </li>
                 <li class="nav-item" style="margin-left: auto; margin-top:10px;">
-                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">New Star</button>
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">New
+                        Star</button>
                 </li>
             </ul>
         </div>
@@ -16,42 +17,19 @@
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Density</th>
+                    <th scope="col">Star</th>
                     <th scope="col" style="text-align: right;">Actions</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true"
-                            aria-expanded="false">Edit</button></td>
-                    <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true"
-                            aria-expanded="false">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true"
-                            aria-expanded="false">Edit</button></td>
-                    <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true"
-                            aria-expanded="false">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td style="text-align: center">
-                        <button class="btn btn-success" type="button" aria-haspopup="true"
-                            aria-expanded="false">Edit</button>
-                    </td>
-                    <td style="text-align: center">
-                        <button class="btn btn-danger" type="button" aria-haspopup="true"
-                            aria-expanded="false">Delete</button>
-                    </td>
-
+                <tr *ngFor="let planet of planets, let i = index">
+                    <th scope="row">{{planet.id}}</th>
+                    <td>{{planet.name}}</td>
+                    <td>{{planet.size}}</td>
+                    <td>vacio</td>
+                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true" aria-expanded="false">Edit</button></td>
+                    <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true" aria-expanded="false">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -80,37 +58,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true"
-                            aria-expanded="false">Edit</button></td>
-                    <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true"
-                            aria-expanded="false">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true"
-                            aria-expanded="false">Edit</button></td>
-                    <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true"
-                            aria-expanded="false">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td style="text-align: center">
-                        <button class="btn btn-success" type="button" aria-haspopup="true"
-                            aria-expanded="false">Edit</button>
-                    </td>
-                    <td style="text-align: center">
-                        <button class="btn btn-danger" type="button" aria-haspopup="true"
-                            aria-expanded="false">Delete</button>
-                    </td>
-
+                <tr *ngFor="let star of stars, let i = index">
+                    <th scope="row">{{star.id}}</th>
+                    <td>{{star.name}}</td>
+                    <td>{{star.density}}</td>
+                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true" aria-expanded="false">Edit</button></td>
+                    <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true" aria-expanded="false">Delete</button></td>
                 </tr>
             </tbody>
         </table>

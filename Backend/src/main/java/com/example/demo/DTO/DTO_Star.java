@@ -1,10 +1,6 @@
 package com.example.demo.DTO;
 
-import com.example.demo.Entity.Base;
-
-public class DTO_Star extends Base{
-	
-	private static final long serialVersionUID = 1L;
+public class DTO_Star extends DTO_Base{
 	
 	//ATRIBUTOS
 	private String name;

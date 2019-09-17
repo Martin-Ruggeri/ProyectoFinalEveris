@@ -1,7 +1,6 @@
 package com.example.demo.Entity;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -24,16 +23,17 @@ public class Planet extends Base{
 	private double size;
 	
 	//RELACIONES
-	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Star.id")
 	private Star star;
 	
 	//CONSTRUCTOR
 	public Planet() {}
 
-	public Planet(String name, double size) {
+	public Planet(String name, double size, Star star) {
 		this.name = name;
 		this.size = size;
+		this.star = star;
 	}
 
 	

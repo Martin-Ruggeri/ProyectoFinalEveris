@@ -1,0 +1,7 @@
+Cambio de Proxy
+
+ Debido a un problema de CORS puesto que al enviar la peticion, devuelve un error de acceso en Access-Control-Allow-Origin.
+
+ La app se debe iniciar con el comando "npm start" y NO con "ng serve -o".
+
+ npm start

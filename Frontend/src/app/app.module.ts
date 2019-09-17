@@ -11,6 +11,8 @@ import { AddPlanetComponent } from './components/add-planet/add-planet.component
 import { AddStarComponent } from './components/add-star/add-star.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { HttpClientModule } from "@angular/common/http"; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

@@ -27,19 +27,20 @@ public class Controller_Planet {
 		this.service_Planet = service_Planet;
 	}
 
-	//localhost:9000/api/v1/planets/{id}
+	//localhost:9000/api/v1/planet/{id}
 	@GetMapping(path="/{id}")
 	public DTO_Planet getOne(@PathVariable int id) {
 		return ResponseEntity.status(200).body(service_Planet.getOne(id)).getBody();
 	}
 	
-	//localhost:9000/api/v1/planets/
+	//localhost:9000/api/v1/planet/
 	@GetMapping(path="/")
 	public List<DTO_Planet> getAll() {
 	//	return planetService.getAll();
 		return ResponseEntity.status(200).body(service_Planet.getAll()).getBody();
 	}
 	
+	//localhost:9000/api/v1/planet/
 	@PostMapping(path="/")
 	public ResponseEntity<DTO_Planet> post(@RequestBody DTO_Planet dTO_Planet) {
 		
@@ -57,6 +58,7 @@ public class Controller_Planet {
 		
 	}
 	
+	//localhost:9000/api/v1/planet/{id}
 	@PutMapping(path = "/{id}")
 	public ResponseEntity<DTO_Planet> put(@RequestBody DTO_Planet dTO_Planet, @PathVariable int id) {
 		
@@ -76,6 +78,7 @@ public class Controller_Planet {
 		
 	}
 	
+	//localhost:9000/api/v1/planet/{id}
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<String> delete(@PathVariable int id) {
 		

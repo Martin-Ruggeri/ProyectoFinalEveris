@@ -1,14 +1,14 @@
 package com.example.demo.DTO;
 
-import com.example.demo.Entity.Base;
 
-public class DTO_Planet extends Base{
-
-	private static final long serialVersionUID = 1L;
+public class DTO_Planet extends DTO_Base{
 	
 	//ATRIBUTOS
 	private String name;
 	private double size;
+	
+	//RELACION
+	private DTO_Star dTO_Star;
 	
 	//CONSTRUCTOR
 	public DTO_Planet() {
@@ -31,5 +31,15 @@ public class DTO_Planet extends Base{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public DTO_Star getdTO_Star() {
+		return dTO_Star;
+	}
+
+	public void setdTO_Star(DTO_Star dTO_Star) {
+		this.dTO_Star = dTO_Star;
+	}
+	
+	
 	
 }
