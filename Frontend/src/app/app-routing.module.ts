@@ -8,8 +8,8 @@ import { AddStarComponent } from './components/add-star/add-star.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'add-planet', component: AddPlanetComponent},
-  {path: 'add-star', component: AddStarComponent}
+  {path: 'add-planet/:id', component: AddPlanetComponent},
+  {path: 'add-star/:id', component: AddStarComponent}
 ];
 
 @NgModule({

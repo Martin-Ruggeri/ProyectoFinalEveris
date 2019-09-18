@@ -19,9 +19,9 @@
     </button>
     <div class="dropdown-menu dropdown-menu-right" style="width:100%; text-align: center;"
       aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" [routerLink]="['home']" (click)="setDir_titulo('home')">Home</a>
-      <a class="dropdown-item" [routerLink]="['add-planet']" (click)="setDir_titulo('add-planet')">Planets</a>
-      <a class="dropdown-item" [routerLink]="['add-star']" (click)="setDir_titulo('add-star')">Stars</a>
+      <a class="dropdown-item" [routerLink]="['/home/']" (click)="setDir_titulo('home')">Home</a>
+      <a class="dropdown-item" [routerLink]="['/add-planet/0']" (click)="setDir_titulo('add-planet')">Planets</a>
+      <a class="dropdown-item" [routerLink]="['/add-star/0']" (click)="setDir_titulo('add-star')">Stars</a>
     </div>
   </div>
 </nav>

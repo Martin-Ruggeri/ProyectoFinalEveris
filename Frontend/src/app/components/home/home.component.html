@@ -6,7 +6,7 @@
                     <h2>List of Planet</h2>
                 </li>
                 <li class="nav-item" style="margin-left: auto; margin-top:10px;">
-                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">New Planet</button>
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false" [routerLink]="['/add-planet/0']">New Planet</button>
                 </li>
             </ul>
         </div>
@@ -27,7 +27,7 @@
                     <td>{{planet.name}}</td>
                     <td>{{planet.size}}</td>
                     <td>vacio</td>
-                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true" aria-expanded="false">Edit</button></td>
+                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true" aria-expanded="false"[routerLink] = "['/add-planet/'+planet.id]">Edit</button></td>
                     <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true" aria-expanded="false" (click) = "deletePlanet(planet.id)">Delete</button></td>
                 </tr>
             </tbody>
@@ -41,7 +41,7 @@
                     <h2>List of Stars</h2>
                 </li>
                 <li class="nav-item" style="margin-left: auto; margin-top:10px;">
-                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false">New Star</button>
+                    <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false" [routerLink]="['/add-star/0']">New Star</button>
                 </li>
             </ul>
         </div>
@@ -60,7 +60,7 @@
                     <th scope="row">{{star.id}}</th>
                     <td>{{star.name}}</td>
                     <td>{{star.density}}</td>
-                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true" aria-expanded="false">Edit</button></td>
+                    <td style="text-align: center"><button class="btn btn-success" type="button" aria-haspopup="true" aria-expanded="false"[routerLink] = "['/add-star/'+star.id]">Edit</button></td>
                     <td style="text-align: center"><button class="btn btn-danger" type="button" aria-haspopup="true" aria-expanded="false" (click) = "deleteStar(star.id)">Delete</button></td>
                 </tr>
             </tbody>
