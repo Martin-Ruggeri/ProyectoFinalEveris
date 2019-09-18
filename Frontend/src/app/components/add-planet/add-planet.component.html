@@ -1,5 +1,8 @@
 <form style="margin-top: 15px;">
     <h2>Planet</h2>
+    <div class="form-group" style="margin-top:25px;">
+        <h5><label class="" *ngIf = "planet != null">Id: {{planet.id}}</label></h5>
+      </div>
     <div class="form-group">
         <label for="FormControlInputName">Name</label>
         <input type="text" class="form-control" id="FormControlInputName" placeholder="Name Planet">
@@ -11,10 +14,7 @@
     <div class="form-group">
         <label for="FormControlSelectStar">Select Star</label>
         <select class="form-control" id="FormControlSelectStar">
-            <option>Linda</option>
-            <option>Luna</option>
-            <option>Stramgor</option>
-            <option>Ricki</option>
+            <option *ngFor = "let star of stars, let i = index" value={{star.id}}>{{star.name}}</option>
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Confirm</button>
