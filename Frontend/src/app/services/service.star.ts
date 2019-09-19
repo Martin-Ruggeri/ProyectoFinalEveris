@@ -8,7 +8,7 @@ import { Star } from '../model/star';
 })
 export class ServiceStar{
 
-  URLStar   = "/api/v1/star/";
+  URLStar   = "http://localhost:9000/api/v1/star/";
 
   constructor( public http: HttpClient) {}
 

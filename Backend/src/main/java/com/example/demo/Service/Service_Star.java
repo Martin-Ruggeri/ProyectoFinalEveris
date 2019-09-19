@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.DTO_Star;
@@ -19,6 +21,7 @@ public class Service_Star {
 		this.repository_Star = repository_Star;
 	}
 	
+	@Transactional
 	public DTO_Star getOne(int id){
 		Optional<Star> bd = repository_Star.findById(id);
 		DTO_Star dTO_Star = new DTO_Star();
@@ -35,6 +38,7 @@ public class Service_Star {
 		}
 	}
 	
+	@Transactional
 	public List<DTO_Star> getAll(){
 		List<DTO_Star> lista = new ArrayList<>();
 		try {
@@ -52,6 +56,7 @@ public class Service_Star {
 		return lista;
 	}
 	
+	@Transactional
 	public DTO_Star post(DTO_Star dTO_Star) {
 		
 		try {
@@ -66,6 +71,7 @@ public class Service_Star {
 		return dTO_Star;
 	}
 	
+	@Transactional
 	public DTO_Star put(DTO_Star dTO_Star, int id) {
 		Optional<Star> bd = repository_Star.findById(id);
 		
@@ -82,6 +88,7 @@ public class Service_Star {
 		
 	}
 	
+	@Transactional
 	public boolean delete(int id){
 		Optional<Star> bd = repository_Star.findById(id);
 		try {

@@ -14,20 +14,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AddPlanetComponent implements OnInit {
 
-  planet: Planet = { id: null, name: "", size: 0, star: null };
+  planet: Planet = { id: null, name: "", size: 0, dTO_Star: null };
 
   stars: Star[] = [];
-  starSelect: Star = null;
 
-  constructor(private serviceStar: ServiceStar,
-    private servicePlanet: ServicePlanet,
-    private router: Router,
-    private activatedRouter: ActivatedRoute) {
+  constructor(private serviceStar: ServiceStar, private servicePlanet: ServicePlanet, private router: Router, private activatedRouter: ActivatedRoute) {
     this.activatedRouter.params.subscribe(
       (data) => {
         if (data.id != 0) {
           this.servicePlanet.getOne(data.id).subscribe(
-            (data2) => this.planet = data2)
+            (data2) =>{ 
+              this.planet = data2
+            }
+          )
         }
       }
     );
@@ -43,24 +42,23 @@ export class AddPlanetComponent implements OnInit {
 
   confirmar() {
     this.planet.name = this.planet.name.trim();
-    this.planet.star = this.starSelect;
 
     // Valida datos ingresados
     let formValido: boolean = this.validarForm(this.planet);
     if (!formValido) return;
 
     // Guardar El Planeta
-    if (this.planet.id == 0 || this.planet.id == null) {
+    if (this.planet.id == null) {
       this.servicePlanet.post(this.planet).subscribe(
-        (data) => {
-          this.planet = { id: null, name: "", size: 0, star: null },
-            this.router.navigate(['/home'])
+        (data:Planet) => {
+          this.planet = { id: null, name: "", size: 0, dTO_Star: null },
+          this.router.navigate(['/list-planet'])
         });
     } else {
-      this.servicePlanet.put(this.planet.id,this.planet).subscribe(
+      this.servicePlanet.put(this.planet.id, this.planet).subscribe(
         (data) => {
-          this.planet = { id: null, name: "", size: 0, star: null },
-            this.router.navigate(['/home'])
+          this.planet = { id: null, name: "", size: 0, dTO_Star: null },
+            this.router.navigate(['/list-planet'])
         });
     }
   }
@@ -68,7 +66,7 @@ export class AddPlanetComponent implements OnInit {
   validarForm(planet: Planet): boolean {
     if (this.planet.name == "" || this.planet.name == null) return false;
     if (this.planet.size <= 0 || this.planet.size == null) return false;
-    if (this.planet.star == null) return false;
+    if (this.planet.dTO_Star == null) return false;
     return true;
   }
 }

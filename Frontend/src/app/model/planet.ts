@@ -4,5 +4,5 @@ import { Star } from './star';
 export class Planet extends Base{
     name:String;
     size:number;
-    star:Star;
+    dTO_Star:Star;
 }

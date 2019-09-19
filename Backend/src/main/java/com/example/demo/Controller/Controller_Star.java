@@ -2,8 +2,11 @@ package com.example.demo.Controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,16 +31,22 @@ public class Controller_Star {
 	}
 	
 	@GetMapping(path="/{id}")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public DTO_Star getOne(@PathVariable int id) {
 		return ResponseEntity.status(200).body(service_Star.getOne(id)).getBody();
 	}
 	
 	@GetMapping(path = "/")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public List<DTO_Star> getAll(){
 		return ResponseEntity.status(200).body(service_Star.getAll()).getBody();
 	}
 	
 	@PostMapping(path = "/")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public ResponseEntity<DTO_Star> post(@RequestBody DTO_Star dTO_Star){
 		DTO_Star resultDTO_Star = new DTO_Star();
 		try {
@@ -49,6 +58,8 @@ public class Controller_Star {
 	}
 	
 	@PutMapping(path = "/{id}")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public ResponseEntity<DTO_Star> put(@RequestBody DTO_Star dTO_Star, @PathVariable int id){
 		DTO_Star resultDTO_Star = new DTO_Star();
 		try {
@@ -61,6 +72,8 @@ public class Controller_Star {
 	}
 	
 	@DeleteMapping(path = "/{id}")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public ResponseEntity<String> delete(@PathVariable int id){
 		boolean result = service_Star.delete(id);
 		

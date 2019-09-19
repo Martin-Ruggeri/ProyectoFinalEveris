@@ -1,5 +1,5 @@
 <form role="form" style="margin-top:15px;">
-  <h2>Star</h2>
+  <h2><span class="badge badge-none">Star</span></h2>
   <div class="form-group" style="margin-top:25px;">
     <h5><label class="" *ngIf = "star.id != null">Id: {{star.id}}</label></h5>
   </div>
@@ -11,5 +11,8 @@
     <label for="FormControlInputDensity">Density</label>
     <input [(ngModel)] = "star.density" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="FormControlInputDensity" placeholder="Density Star">
   </div>
-  <button type="submit" class="btn btn-primary" (click) = confirmar()>Confirm</button>
+  <div>
+      <button type="submit" class="btn btn-primary" (click) = confirmar()>Confirm</button>
+      <button type="submit" class="btn btn-success" [routerLink] = "['/list-planet']" >volver</button>
+  </div>
 </form>

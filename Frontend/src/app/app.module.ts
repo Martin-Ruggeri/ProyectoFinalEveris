@@ -10,6 +10,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPlanetComponent } from './components/add-planet/add-planet.component';
 import { AddStarComponent } from './components/add-star/add-star.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListPlanetComponent } from './components/list-planet/list-planet.component';
+import { ListStarComponent } from './components/list-star/list-star.component';
 
 import { HttpClientModule } from '@angular/common/http'; 
 
@@ -21,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     AddPlanetComponent,
     AddStarComponent,
-    HomeComponent
+    HomeComponent,
+    ListPlanetComponent,
+    ListStarComponent
   ],
   imports: [
     BrowserModule,

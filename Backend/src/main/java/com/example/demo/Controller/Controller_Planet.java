@@ -2,8 +2,11 @@ package com.example.demo.Controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,12 +32,16 @@ public class Controller_Planet {
 
 	//localhost:9000/api/v1/planet/{id}
 	@GetMapping(path="/{id}")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public DTO_Planet getOne(@PathVariable int id) {
 		return ResponseEntity.status(200).body(service_Planet.getOne(id)).getBody();
 	}
 	
 	//localhost:9000/api/v1/planet/
 	@GetMapping(path="/")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public List<DTO_Planet> getAll() {
 	//	return planetService.getAll();
 		return ResponseEntity.status(200).body(service_Planet.getAll()).getBody();
@@ -42,6 +49,8 @@ public class Controller_Planet {
 	
 	//localhost:9000/api/v1/planet/
 	@PostMapping(path="/")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public ResponseEntity<DTO_Planet> post(@RequestBody DTO_Planet dTO_Planet) {
 		
 		DTO_Planet result = new DTO_Planet();
@@ -60,6 +69,8 @@ public class Controller_Planet {
 	
 	//localhost:9000/api/v1/planet/{id}
 	@PutMapping(path = "/{id}")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public ResponseEntity<DTO_Planet> put(@RequestBody DTO_Planet dTO_Planet, @PathVariable int id) {
 		
 		DTO_Planet result = new DTO_Planet();
@@ -80,6 +91,8 @@ public class Controller_Planet {
 	
 	//localhost:9000/api/v1/planet/{id}
 	@DeleteMapping(path = "/{id}")
+	@CrossOrigin(origins = "*")
+	@Transactional
 	public ResponseEntity<String> delete(@PathVariable int id) {
 		
 		boolean result = service_Planet.delete(id);

@@ -1,27 +1,41 @@
-<nav class="navbar navbar-light bg-secondary" routerLinkActive="active">
-  <!-- Logo -->
-  <a class="nav-link active" _ngcontent-c1="" aria-label="Angular Material" style="color:white;" aria-disabled="true" [routerLink]="['home']" (click)="setDir_titulo('home')">
-    <span class="mat-button-focus-overlay">
-      <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="https://icon-icons.com/icons2/510/PNG/48/planet_icon-icons.com_50069.png">
-    </span>
-  </a>
-  <!-- Titulo -->
-  <div class="spacer">
-    <h2 style="text-align: center; color:dark;" *ngIf="dir_titulo == 'home'">Welcome to the Planets</h2>
-    <h2 style="text-align: center; color:dark;" *ngIf="dir_titulo == 'add-star'">Star</h2>
-    <h2 style="text-align: center; color:dark;" *ngIf="dir_titulo == 'add-planet'">Planet</h2>
-  </div>
-  <!-- Dropdown (Para elegir casilla) -->
-  <div class="dropdown" style="margin-right: 3%;">
-    <button class="btn btn-outline-dark " type="button" id="dropdownMenuButton" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false" style="width: 57px;">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="dropdown-menu dropdown-menu-right" style="width:100%; text-align: center;"
-      aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" [routerLink]="['/home/']" (click)="setDir_titulo('home')">Home</a>
-      <a class="dropdown-item" [routerLink]="['/add-planet/0']" (click)="setDir_titulo('add-planet')">Planets</a>
-      <a class="dropdown-item" [routerLink]="['/add-star/0']" (click)="setDir_titulo('add-star')">Stars</a>
-    </div>
-  </div>
+<nav class="navbar navbar-light bg-light" routerLinkActive="active" style=" margin: 0%; padding: 0%;">
+    <div class="form-group row" id="navbarSupportedContent" style=" margin: 0%; padding: 0%; margin-left: 15px;">
+        <!-- Logo -->
+        <a class="nav-link" style="margin: 0%; padding: 0%;" [routerLink]="['home']" (click)="setDir_titulo('home')">
+          <span class="mat-button-focus-overlay"  >
+            <img _ngcontent-c1="" alt="angular" class="docs-angular-logo" src="https://icon-icons.com/icons2/510/PNG/48/planet_icon-icons.com_50069.png">
+          </span>
+        </a>
+        <!-- Links -->
+          <ul ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" style = "margin: 10px 0.7% 0px 0.7%; padding: 0%;" [routerLink]="['./home']" (click)="setDir_titulo('home')"><span class="badge badge-light">Home</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style = "margin: 10px 0.7% 0px 0.7%; padding: 0%;" [routerLink]="['/list-planet/']" (click)="setDir_titulo('list-planet')"><span class="badge badge-light">List Planets</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style = "margin: 10px 0.7% 0px 0.7%; padding: 0%;" [routerLink]="['./list-star']" (click)="setDir_titulo('list-star')"><span class="badge badge-light">List Stars</span></a>
+            </li>
+          </ul>
+        </div>
+        <!-- Titulo -->
+        <div class="spacer" style="width:25% ; margin: 0%; padding: 0%; text-align: left;">
+          <h3  *ngIf="dir_titulo == 'home'" ><span class="badge badge-none">Welcome to </span></h3>
+          <h3  *ngIf="dir_titulo == 'add-star'"><span class="badge badge-none">Star</span></h3>
+          <h3  *ngIf="dir_titulo == 'add-planet'"><span class="badge badge-none">Planet</span></h3>
+          <h3  *ngIf="dir_titulo == 'list-planet'"><span class="badge badge-none">List Planet</span></h3>
+          <h3  *ngIf="dir_titulo == 'list-star'"><span class="badge badge-none">List Star</span></h3>
+        </div>
+        <!-- Dropdown (Para elegir casilla) -->
+        <div class="dropdown" style=" margin: 0%; padding: 0%; margin-right: 15px">
+          <button class="btn btn-outline-dark " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 57px; margin: 0%;">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" style="width:100%; text-align: center;"
+            aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" [routerLink]="['/add-planet/0']" (click)="setDir_titulo('add-planet')">New Planet</a>
+            <a class="dropdown-item" [routerLink]="['/add-star/0']" (click)="setDir_titulo('add-star')">New Star</a>
+          </div>
+        </div>
 </nav>

@@ -38,13 +38,13 @@ export class AddStarComponent implements OnInit {
       this.serviceStar.post(this.star).subscribe(
         (data) => {
           this.star = { id: null, name: "", density: 0 };
-          this.router.navigate(['/home'])
+          this.router.navigate(['/list-star'])
         });
     } else{
       this.serviceStar.put(this.star.id,this.star).subscribe(
         (data) => {
           this.star = { id: null, name: "", density: 0 };
-          this.router.navigate(['/home'])
+          this.router.navigate(['/list-star'])
         });
     }
   }

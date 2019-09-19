@@ -8,7 +8,7 @@ import { Planet } from '../model/planet';
 })
 export class ServicePlanet{
   
-    URLPlanet = "/api/v1/planet/";
+    URLPlanet = "http://localhost:9000/api/v1/planet/";
 
   constructor( public http: HttpClient) {}
 

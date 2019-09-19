@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.DTO_Planet;
@@ -17,15 +19,13 @@ public class Service_Planet {
 
 	private Repository_Planet repository_Planet;
 	
-
-
 	public Service_Planet(Repository_Planet repository_Planet) {
 		this.repository_Planet = repository_Planet;
 	}
 	
 
 
-	
+	@Transactional
 	public DTO_Planet getOne(int id) {	
 		Optional<Planet> bd = repository_Planet.findById(id);
 		DTO_Planet dTO_Planet = new DTO_Planet();
@@ -47,6 +47,7 @@ public class Service_Planet {
 		}
 	}
 	
+	@Transactional
 	public List<DTO_Planet> getAll(){	
 		List<DTO_Planet> lista = new ArrayList<>();	
 		// comunico la lectura al repositorio y me devuelve Entidad
@@ -74,6 +75,7 @@ public class Service_Planet {
 		
 	}
 	
+	@Transactional
 	public DTO_Planet post(DTO_Planet dTO_Planet) {		
 		try {			
 			Planet planet = new Planet();		
@@ -96,6 +98,7 @@ public class Service_Planet {
 		
 	}
 	
+	@Transactional
 	public DTO_Planet put(DTO_Planet dTO_Planet, int id) {
 		Optional<Planet> temp = repository_Planet.findById(id);			
 		
@@ -119,6 +122,7 @@ public class Service_Planet {
 		return dTO_Planet;	
 	}
 	
+	@Transactional
 	public boolean delete(int id) {
 		Optional<Planet> planet = repository_Planet.findById(id);	
 		try {					
