@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,9 +25,12 @@ import com.example.demo.Service.Service_Planet;
 @RequestMapping(path = "api/v1/planet")
 public class Controller_Planet {
 
+    static Logger log = Logger.getLogger(Controller_Planet.class);
+    
 	private Service_Planet service_Planet;
 	
 	public Controller_Planet(Service_Planet service_Planet) {
+		log.debug("Se creo un Controller_Planet");
 		this.service_Planet = service_Planet;
 	}
 
@@ -35,6 +39,7 @@ public class Controller_Planet {
 	@CrossOrigin(origins = "*")
 	@Transactional
 	public DTO_Planet getOne(@PathVariable int id) {
+		log.debug("Controller_Planet : getOne()");
 		return ResponseEntity.status(200).body(service_Planet.getOne(id)).getBody();
 	}
 	
@@ -43,7 +48,7 @@ public class Controller_Planet {
 	@CrossOrigin(origins = "*")
 	@Transactional
 	public List<DTO_Planet> getAll() {
-	//	return planetService.getAll();
+		log.debug("Controller_Planet : getAll()");
 		return ResponseEntity.status(200).body(service_Planet.getAll()).getBody();
 	}
 	
@@ -58,9 +63,9 @@ public class Controller_Planet {
 		try {
 			
 			result = service_Planet.post(dTO_Planet);
-			
+			log.debug("Controller_Planet : post()");
 		} catch (Exception e) {
-
+			log.error("Error en Controller_Planet : post()");
 		}
 		
 		return ResponseEntity.status(201).body(result);
@@ -78,9 +83,9 @@ public class Controller_Planet {
 		try {
 
 			result = service_Planet.put(dTO_Planet, id);
-			
+			log.debug("Controller_Planet : put()");
 		} catch (Exception e) {
-
+			log.error("Error en Controller_Planet : put()");
 		}
 		
 		dTO_Planet.setId(result.getId());
@@ -98,9 +103,11 @@ public class Controller_Planet {
 		boolean result = service_Planet.delete(id);
 		
 		if(result) {
+			log.debug("Controller_Planet : delete()");
 			return ResponseEntity.status(204).body("");
 		}
 		else {
+			log.error("Error en Controller_Planet : delete()");
 			return ResponseEntity.status(204).body("No funciona");
 		}
 		

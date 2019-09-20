@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.DTO_Star;
@@ -15,9 +16,12 @@ import com.example.demo.Repository.Repository_Star;
 @Service
 public class Service_Star {
 	
+    static Logger log = Logger.getLogger(Service_Star.class);
+	
 	private Repository_Star repository_Star;
 
 	public Service_Star(Repository_Star repository_Star) {
+		log.debug("Se creo un Service_Star");
 		this.repository_Star = repository_Star;
 	}
 	
@@ -32,8 +36,10 @@ public class Service_Star {
 			dTO_Star.setDensity(star.getDensity());
 			dTO_Star.setId(star.getId());
 			
+			log.debug("Service_Star : getOne()");
 			return dTO_Star;
 		} catch (Exception e) {
+			log.error("Error en Service_Star: getOne()");
 			return dTO_Star;
 		}
 	}
@@ -50,8 +56,9 @@ public class Service_Star {
 				
 				lista.add(dTO_Star);
 			}
+			log.debug("Service_Star : getAll()");
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Error en Service_Star: getAll()");
 		}
 		return lista;
 	}
@@ -65,8 +72,9 @@ public class Service_Star {
 			star.setName(dTO_Star.getName());
 			repository_Star.save(star);
 			dTO_Star.setId(star.getId());
+			log.debug("Service_Star : post()");
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Error en Service_Star: post()");
 		}
 		return dTO_Star;
 	}
@@ -81,8 +89,9 @@ public class Service_Star {
 			star.setName(dTO_Star.getName());
 			repository_Star.save(star);
 			dTO_Star.setId(star.getId());
+			log.debug("Service_Star : put()");
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Error en Service_Star: put()");
 		}
 		return dTO_Star;
 		
@@ -93,8 +102,10 @@ public class Service_Star {
 		Optional<Star> bd = repository_Star.findById(id);
 		try {
 			repository_Star.delete(bd.get());
+			log.debug("Service_Star : delete()");
 			return true;
 		} catch (Exception e) {
+			log.error("Error en Service_Star: delete()");
 			return false;
 		}
 	}

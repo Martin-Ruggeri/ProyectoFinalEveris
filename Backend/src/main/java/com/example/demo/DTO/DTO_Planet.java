@@ -1,8 +1,8 @@
 package com.example.demo.DTO;
 
-
 public class DTO_Planet extends DTO_Base{
 	
+    
 	//ATRIBUTOS
 	private String name;
 	private double size;
@@ -11,9 +11,7 @@ public class DTO_Planet extends DTO_Base{
 	private DTO_Star dTO_Star;
 	
 	//CONSTRUCTOR
-	public DTO_Planet() {
-		
-	}
+	public DTO_Planet() {}
 
 	//GETTERS AND SETTERS
 	public double getSize() {

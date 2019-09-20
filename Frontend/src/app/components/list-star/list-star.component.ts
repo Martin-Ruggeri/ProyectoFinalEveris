@@ -24,8 +24,10 @@ export class ListStarComponent implements OnInit {
   delete(id: number){
     this.serviceStar.delete(id).subscribe(
       () => this.stars = this.stars.filter((star) => star.id !== id),
-      (err) => console.log("La star: " + id + " No se puede eliminar")  // Nunca entra por aca
-      );
+      (err) => {
+        console.log("La star: " + id + " No se puede eliminar"),
+        alert("La star: " + this.stars.filter((star) => star.id == id)[0].name + " No se puede eliminar debido a que tiene un planeta asignado")
+      });
   }
 
 }

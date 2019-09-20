@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.DTO_Planet;
@@ -17,9 +18,12 @@ import com.example.demo.Repository.Repository_Planet;
 @Service
 public class Service_Planet {
 
+    static Logger log = Logger.getLogger(Service_Planet.class);
+	
 	private Repository_Planet repository_Planet;
 	
 	public Service_Planet(Repository_Planet repository_Planet) {
+		log.debug("Se creo un Service_Planet");
 		this.repository_Planet = repository_Planet;
 	}
 	
@@ -40,9 +44,10 @@ public class Service_Planet {
 			dTO_Planet.getdTO_Star().setId(planet.getStar().getId());
 			dTO_Planet.getdTO_Star().setDensity(planet.getStar().getDensity());
 			dTO_Planet.getdTO_Star().setName(planet.getStar().getName());
-			
+			log.debug("Service_Planet : getOne()");
 			return dTO_Planet;
 		} catch (Exception e) {	
+			log.error("Error en Service_Planet : getOne()");
 			return dTO_Planet;
 		}
 	}
@@ -50,7 +55,6 @@ public class Service_Planet {
 	@Transactional
 	public List<DTO_Planet> getAll(){	
 		List<DTO_Planet> lista = new ArrayList<>();	
-		// comunico la lectura al repositorio y me devuelve Entidad
 		try {
 			for (Planet planet : repository_Planet.findAll()) {
 				// cargo de la entidad al Dto
@@ -65,10 +69,11 @@ public class Service_Planet {
 				dTO_Planet.getdTO_Star().setDensity(planet.getStar().getDensity());
 				dTO_Planet.getdTO_Star().setName(planet.getStar().getName());
 //				Cargo a cada elemento el dto
-				lista.add(dTO_Planet);			
-			}	
+				lista.add(dTO_Planet);
+			}
+			log.debug("Service_Planet : getAll()");
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Error en Service_Planet : getAll()");
 		}
 		
 		return lista;
@@ -90,8 +95,9 @@ public class Service_Planet {
 			planet = repository_Planet.save(planet);
 			
 			dTO_Planet.setId(planet.getId());
-			
-		} catch (Exception e) {						
+			log.debug("Service_Planet : post()");
+		} catch (Exception e) {					
+			log.error("Error en Service_Planet : post()");
 			System.out.println(e.getMessage());
 		}	
 		return dTO_Planet;
@@ -115,9 +121,10 @@ public class Service_Planet {
 			planet.setStar(star);
 			
 			repository_Planet.save(planet);		
-			dTO_Planet.setId(planet.getId());		
+			dTO_Planet.setId(planet.getId());	
+			log.debug("Service_Planet : put()");
 		} catch (Exception e) {
-			
+			log.error("Error en Service_Planet : put()");
 		}			
 		return dTO_Planet;	
 	}
@@ -127,8 +134,10 @@ public class Service_Planet {
 		Optional<Planet> planet = repository_Planet.findById(id);	
 		try {					
 			repository_Planet.delete(planet.get());
+			log.debug("Service_Planet : delete()");
 			return true;		
 		} catch (Exception e) {
+			log.error("Error en Service_Planet : delete()");
 			return false;
 		}
 		

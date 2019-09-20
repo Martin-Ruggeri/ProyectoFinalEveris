@@ -6,8 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
@@ -22,7 +20,8 @@ public abstract class Base implements Serializable{
     protected int id;
 
     //CONSTRUCTOR
-    public Base() {}
+    public Base() {
+    }
     
     //GETTERS AND SETTERS
     public int getId() {

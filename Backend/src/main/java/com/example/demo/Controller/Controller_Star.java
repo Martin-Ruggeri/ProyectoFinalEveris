@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,9 +25,12 @@ import com.example.demo.Service.Service_Star;
 @RequestMapping(path = "api/v1/star")
 public class Controller_Star {
 
+    static Logger log = Logger.getLogger(Controller_Star.class);
+	
 	private Service_Star service_Star;
 
 	public Controller_Star(Service_Star service_Star) {
+		log.debug("Se creo un Controller_Star");
 		this.service_Star = service_Star;
 	}
 	
@@ -34,6 +38,7 @@ public class Controller_Star {
 	@CrossOrigin(origins = "*")
 	@Transactional
 	public DTO_Star getOne(@PathVariable int id) {
+		log.debug("Controller_Star : getOne()");
 		return ResponseEntity.status(200).body(service_Star.getOne(id)).getBody();
 	}
 	
@@ -41,6 +46,7 @@ public class Controller_Star {
 	@CrossOrigin(origins = "*")
 	@Transactional
 	public List<DTO_Star> getAll(){
+		log.debug("Controller_Star : getAll()");
 		return ResponseEntity.status(200).body(service_Star.getAll()).getBody();
 	}
 	
@@ -51,8 +57,9 @@ public class Controller_Star {
 		DTO_Star resultDTO_Star = new DTO_Star();
 		try {
 			resultDTO_Star = service_Star.post(dTO_Star);
+			log.debug("Controller_Star : post()");
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Error en Controller_Star : post()");
 		}
 		return ResponseEntity.status(201).body(resultDTO_Star);
 	}
@@ -64,8 +71,9 @@ public class Controller_Star {
 		DTO_Star resultDTO_Star = new DTO_Star();
 		try {
 			resultDTO_Star = service_Star.put(dTO_Star, id);
+			log.debug("Controller_Star : put()");
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.error("Error en Controller_Star : put()");
 		}
 			dTO_Star.setId(resultDTO_Star.getId());
 			return ResponseEntity.status(201).body(dTO_Star);
@@ -78,9 +86,11 @@ public class Controller_Star {
 		boolean result = service_Star.delete(id);
 		
 		if(result) {
+			log.debug("Controller_Star : delete()");
 			return ResponseEntity.status(204).body("");
 		}
 		else {
+			log.error("Error en Controller_Star : delete()");
 			return ResponseEntity.status(204).body("No funciona");
 		}
 	}
