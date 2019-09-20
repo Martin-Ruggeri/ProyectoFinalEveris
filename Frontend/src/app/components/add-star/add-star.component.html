@@ -1,18 +1,20 @@
-<form role="form" style="margin-top:15px;">
-  <h2><span class="badge badge-none">Star</span></h2>
+<form role="form" style="margin-top:15px; color: white;">
+  <h2><span class="badge badge-none" >Star</span></h2>
   <div class="form-group" style="margin-top:25px;">
     <h5><label class="" *ngIf = "star.id != null">Id: {{star.id}}</label></h5>
   </div>
   <div class="form-group">
     <label for="FormControlInputName">Name</label>
-    <input [(ngModel)] = "star.name" [ngModelOptions]="{standalone: true}" type="text" maxlength="15" class="form-control" id="FormControlInputName" placeholder="Name Star">
+    <input style="background-color:gainsboro; border: none;" [(ngModel)] = "star.name" [ngModelOptions]="{standalone: true}" type="text" maxlength="15" class="form-control" id="FormControlInputName" placeholder="Name Star">
+    <div style="color: red; font-weight:bold;">{{msjAlertName}}</div>
   </div>
   <div class="form-group">
     <label for="FormControlInputDensity">Density</label>
-    <input [(ngModel)] = "star.density" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="FormControlInputDensity" placeholder="Density Star">
+    <input style="background-color:gainsboro; border: none;" [(ngModel)] = "star.density" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="FormControlInputDensity" placeholder="Density Star">
+    <div style="color: red; font-weight:bold;">{{msjAlertDensity}}</div>
   </div>
-  <div>
-      <button type="submit" class="btn btn-primary" (click) = confirmar()>Confirm</button>
-      <button type="submit" class="btn btn-success" [routerLink] = "['/list-planet']" >volver</button>
-  </div>
+  <div class="form-group row">
+      <button style="width: 100px ; margin-left:35%; margin-top: 3%;" type="submit" class="btn btn-primary" (click) = confirmar()>Confirm</button>
+      <button style="width: 100px ; margin-left:10%; margin-top: 3%;" type="submit" class="btn btn-success" [routerLink] = "['/list-star']" >volver</button>
+</div>
 </form>

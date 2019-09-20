@@ -3,7 +3,7 @@
     <div style="margin-top: 25px">
         <ul class="nav">
             <li class="nav-item">
-                <h2><span class="badge badge-none">List of Planet</span></h2>
+                <h2><span class="badge badge-none" style="color: white">List of Planet</span></h2>
             </li>
             <li class="nav-item" style="margin-left: auto; margin-top:10px;">
                 <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false" [routerLink]="['/add-planet/0']">New Planet</button>
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let planet of planets, let i = index">
+            <tr *ngFor="let planet of planets, let i = index" style="color: white; font-weight:bold;" >
                 <th scope="row">{{planet.id}}</th>
                 <td>{{planet.name}}</td>
                 <td>{{planet.size}}</td>

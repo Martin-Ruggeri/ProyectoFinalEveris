@@ -3,7 +3,7 @@
     <div style="margin-top: 25px">
         <ul class="nav">
             <li class="nav-item">
-                <h2><span class="badge badge-none">List of Star</span></h2>
+                <h2><span class="badge badge-none" style="color: white">List of Star</span></h2>
             </li>
             <li class="nav-item" style="margin-left: auto; margin-top:10px;">
                 <button class="btn btn-info" type="button" aria-haspopup="true" aria-expanded="false"
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let star of stars, let i = index">
+            <tr *ngFor="let star of stars, let i = index" style="color: white; font-weight:bold;">
                 <th scope="row">{{star.id}}</th>
                 <td>{{star.name}}</td>
                 <td>{{star.density}}</td>

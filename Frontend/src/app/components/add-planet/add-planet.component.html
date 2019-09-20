@@ -1,25 +1,28 @@
-<form style="margin-top: 15px;">
+<form style="margin-top: 15px; color: white;">
     <h2><span class="badge badge-none">Planet</span></h2>
     <div class="form-group" style="margin-top:25px;">
         <h5><label class="" *ngIf = "planet.id != null">Id: {{planet.id}}</label></h5>
       </div>
     <div class="form-group">
         <label for="FormControlInputName">Name</label>
-        <input [(ngModel)] = "planet.name" [ngModelOptions]="{standalone: true}" type="text" maxlength="15" class="form-control" id="FormControlInputName" placeholder="Name Planet">
+        <input style="background-color:gainsboro; border: none;" [(ngModel)] = "planet.name" [ngModelOptions]="{standalone: true}" type="text" maxlength="15" class="form-control" id="FormControlInputName" placeholder="Name Planet">
+        <div style="color: red; font-weight:bold;">{{msjAlertName}}</div>
     </div>
     <div class="form-group">
         <label for="FormControlInputSize">Size</label>
-        <input [(ngModel)] ="planet.size" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="FormControlInputSize" placeholder="Size Planet">
+        <input style="background-color:gainsboro; border: none;" [(ngModel)] ="planet.size" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="FormControlInputSize" placeholder="Size Planet">
+        <div style="color: red; font-weight:bold;">{{msjAlertSize}}</div>
     </div>
     <div class="form-group">
         <label for="FormControlSelectStar">Select Star</label>
-        <select [(ngModel)]="planet.dTO_Star" class="form-control" id="FormControlSelectStar"  name="selectStar">
+        <select style="background-color:gainsboro; border: none;" [(ngModel)]="planet.dTO_Star" class="form-control" id="FormControlSelectStar"  name="selectStar">
             <option *ngIf="planet.id != null" [ngValue]="planet.dTO_Star" selected disabled hidden>{{planet.dTO_Star.name}}</option>
             <option *ngFor = "let star of stars, let i = index" [ngValue]="star">{{star.name}}</option>
         </select>
+        <div style="color: red; font-weight:bold;">{{msjAlertStar}}</div>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary" (click) = confirmar()>Confirm</button>
-        <button type="submit" class="btn btn-success" [routerLink] = "['/list-planet']" >volver</button>
+    <div class="form-group row">
+            <button style="width: 100px ; margin-left:35%; margin-top: 3%;" type="submit" class="btn btn-primary" (click) = confirmar()>Confirm</button>
+            <button style="width: 100px ; margin-left:10%; margin-top: 3%;" type="submit" class="btn btn-success" [routerLink] = "['/list-planet']" >volver</button>
     </div>
 </form>
