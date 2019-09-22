@@ -12,7 +12,7 @@ public class DemoTardeApplication {
     static Logger log = Logger.getLogger(DemoTardeApplication.class);
     
 	public static void main(String[] args) {
-        // Crea un archivo HTML, llamado logger_Message que esta guardado en la carpeta Raiz
+        // Crea un archivo HTML, llamado Messages_Proyecto que esta guardado en la carpeta Raiz
         PropertyConfigurator.configure("log4j.properties");
         
         log.debug("Se a iniciado Proyecto Final");

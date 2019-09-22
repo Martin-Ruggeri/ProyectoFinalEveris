@@ -28,6 +28,6 @@ HELP.md
 ### VS Code ###
 .vscode/
 
-
-### Log4j###
-logger_Message
+### Log4j ###
+Messages_Proyecto.html
+Messages_Test.html

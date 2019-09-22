@@ -60,7 +60,9 @@ public class Star extends Base{
 	public void setPlanets(List<Planet> planets) {
 		this.planets = planets;
 	}
-	
+	public void addPlanet(Planet planet) {
+		this.planets.add(planet);
+	}
 	
 	
 }

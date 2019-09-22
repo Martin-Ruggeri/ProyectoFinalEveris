@@ -11,7 +11,7 @@ import { ListStarComponent } from './components/list-star/list-star.component';
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'add-planet/:id', component: AddPlanetComponent},
   {path: 'add-star/:id', component: AddStarComponent},
   {path: 'list-planet', component: ListPlanetComponent},
